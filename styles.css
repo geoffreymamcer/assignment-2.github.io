@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", serif;
+}
+
+body {
+  background-color: #e0dddd;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  height: 60px;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+.cards-container {
+  margin-top: 20px;
+  display: flex;
+
+  width: 100%;
+}
+
+.image-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60%;
+  background-position: center;
+}
+
+.container-one {
+  background-image: url(assets/6120607316727415397.jpg);
+}
+
+.container-two {
+  background-image: url(assets/netflixlogo.jpg);
+}
+
+.container-three {
+  background-image: url(assets/jenny.jpg);
+}
+
+.card {
+  height: 100px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card:hover,
+.card:active {
+  transform: translateY(-10px); /* Lift the card slightly on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 5%;
+  width: 90%;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.text-container {
+  margin: 10px;
+  text-align: justify;
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    max-height: 200px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    height: 40vh;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .cards-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card {
+    width: 40%;
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .card {
+    width: 20%;
+    height: 50vh;
+  }
+
+  .cards-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .text-container p {
+    margin: 20px;
+    overflow: auto;
+  }
+}
